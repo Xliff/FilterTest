@@ -25,6 +25,8 @@ import com.example.cliff.filtertest.data.filter.PositionFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by Cliff on 8/9/2015.
@@ -58,6 +60,7 @@ public class CustomAdapter extends BaseAdapter {
     public void setList(ArrayList<PlayerData> newList) {
         // cw: Hope this doesn't choke on large items.
         m_Items = newList;
+        sortData();
         notifyDataSetChanged();
     }
 
@@ -191,6 +194,35 @@ public class CustomAdapter extends BaseAdapter {
         vh.tv_ln.setText(vh.pd.lname);
         vh.tv_bye.setText("Bye: " + vh.pd.byeWeek);
         vh.tv_rank.setText("#" + String.format("%.1f", vh.pd.nerdRank));
+    }
+
+    public void sortData() {
+        // cw: YYY - Should benchmark this.
+        Collections.sort(m_Items, new Comparator<PlayerData>() {
+            @Override
+            // cw: Is there anyway to make this flexible without OVERLY complicating things?
+            //
+            // For now sort is implemented in the following order:
+            //      1) Nerd Rank
+            //      2) Last Name
+            //      3) First Name
+            //      4) Team
+            public int compare(PlayerData lhs, PlayerData rhs) {
+                int c;
+                Double a = lhs.nerdRank;
+                Double b = rhs.nerdRank;
+
+                c = a.compareTo(b);
+                if (c == 0)
+                    c = lhs.lname.compareTo(rhs.lname);
+                if (c == 0)
+                    c = lhs.fname.compareTo(rhs.fname);
+                if (c == 0)
+                    c = lhs.team.compareTo(rhs.team);
+
+                return c;
+            }
+        });
     }
 
     @Override
