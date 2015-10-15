@@ -1,0 +1,184 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/filterListLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/switch_thumb_disabled_material_dark"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:id="@+id/filterTypeLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offense"
+            android:id="@+id/offButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defense"
+            android:id="@+id/defButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team"
+            android:id="@+id/teamButton" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:id="@+id/nameButton" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/offensePosLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QB"
+            android:id="@+id/qbButton"
+            android:textOff="QB"
+            android:textOn="QB" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="RB"
+            android:textOn="RB"
+            android:id="@+id/rbButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="TE"
+			android:textOff="TE"
+            android:id="@+id/teButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="WR"
+			android:textOff="WR"
+            android:id="@+id/wrButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="K"
+			android:textOff="K"
+            android:id="@+id/kButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="LB"
+			android:textOff="LB"
+            android:id="@+id/olbButton" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/defensePosLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="CB"
+			android:textOff="CB"
+            android:id="@+id/cbButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="DE"
+			android:textOff="DE"
+            android:id="@+id/deButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="DT"
+			android:textOff="DT"
+            android:id="@+id/dtButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="LB"
+			android:textOff="LB"
+            android:id="@+id/dlbButton" />
+
+        <ToggleButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="S"
+			android:textOff="S"
+            android:id="@+id/sButton" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/teamLayout"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/helmetSelector" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nameLayout">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:id="@+id/nameText"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="30dip"
+            android:background="#ffebaa" />
+    </LinearLayout>
+
+    <com.example.cliff.filtertest.DragDropListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/selectionList"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="10dip" />
+
+</LinearLayout>

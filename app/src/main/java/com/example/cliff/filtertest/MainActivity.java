@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
     private CustomAdapter theAdapter;
     private boolean loadCompleted;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

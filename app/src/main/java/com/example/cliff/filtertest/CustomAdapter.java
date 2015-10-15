@@ -43,7 +43,7 @@ public class CustomAdapter extends BaseAdapter {
 
     PlayerFilter m_SelectedFilter = new PlayerFilter();
     PositionFilter m_PositionFilter = new PositionFilter();
-    ArrayList<Filter<PlayerData>> m_Filters = new ArrayList<Filter<PlayerData>>();
+    ArrayList<Filter<PlayerData>> m_Filters = new ArrayList<>();
 
 
     public CustomAdapter(Context context) {
@@ -138,6 +138,7 @@ public class CustomAdapter extends BaseAdapter {
 
     }
 
+    //region Filter support methods.
     public void addSelectedPlayer(PlayerData pd) {
         m_SelectedFilter.addSelectedPlayer(pd);
         updateItems();
@@ -148,6 +149,24 @@ public class CustomAdapter extends BaseAdapter {
         updateItems();
     }
 
+    public int findPosition(String pos) {
+        return m_PositionFilter.findPosition(pos);
+    }
+
+    public void addPositionFilter(String pos) {
+        m_PositionFilter.addPosition(pos);
+        updateItems();
+    }
+
+    public void removePositionFilter(String pos) {
+        m_PositionFilter.removePosition(pos);
+        updateItems();
+    }
+
+    public void removePositionFilterIdx(int idx) {
+        m_PositionFilter.removePosition(idx);
+    }
+    //endregion
 
     // cw: We use a public facing version of getView() to insure we have a clean view rather
     // than trying to re-use the selected View from the control.

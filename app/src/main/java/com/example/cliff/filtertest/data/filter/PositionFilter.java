@@ -20,6 +20,14 @@ public class PositionFilter extends Filter<PlayerData> {
         positions.remove(positions.indexOf(pos));
     }
 
+    public void removePosition(int pos) {
+        positions.remove(pos);
+    }
+
+    public int findPosition(String pos) {
+        return positions.indexOf(pos);
+    }
+
     public ArrayList<String> getPositions() {
         return positions;
     }
